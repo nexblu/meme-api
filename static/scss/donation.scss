@@ -1,0 +1,81 @@
+$setengah_rem: .5rem;
+
+body {
+    .jumbotron-donation {
+        min-height: 100vh;
+
+        .container {
+            .border-donation {
+                background-color: #212529;
+
+                .row {
+                    .col {
+                        .desc-donation {
+                            margin-left: $setengah_rem + 0.5rem;
+                            margin-right: $setengah_rem + 0.5rem;
+                        }
+
+                        .card {
+                            background-color: #ffffff;
+                            margin-left: $setengah_rem + 1rem;
+                            margin-right: $setengah_rem + 1rem;
+
+                            a.btn-small-active {
+                                margin-top: $setengah_rem;
+                                margin-left: 1rem;
+                                margin-bottom: 1rem;
+                                display: none;
+                            }
+
+                            .card-body {
+                                img {
+                                    height: 2.8rem;
+                                    width: 2.8rem;
+                                    background-color: #C7C8C9;
+                                }
+
+                                p.card-text {
+                                    margin-top: $setengah_rem;
+                                    margin-left: 1rem;
+                                }
+
+                                a.btn-small {
+                                    height: 2.5rem;
+                                    width: 8rem;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    body {
+        .jumbotron-donation {
+            .container {
+                .border-donation {
+                    .row {
+                        .col {
+                            .card {
+
+                                a.btn-small-active {
+                                    display: block;
+                                }
+
+                                .card-body {
+                                    a.btn {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

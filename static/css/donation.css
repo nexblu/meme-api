@@ -1,0 +1,44 @@
+body .jumbotron-donation {
+  min-height: 100vh;
+}
+body .jumbotron-donation .container .border-donation {
+  background-color: #212529;
+}
+body .jumbotron-donation .container .border-donation .row .col .desc-donation {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+body .jumbotron-donation .container .border-donation .row .col .card {
+  background-color: #ffffff;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+body .jumbotron-donation .container .border-donation .row .col .card a.btn-small-active {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  display: none;
+}
+body .jumbotron-donation .container .border-donation .row .col .card .card-body img {
+  height: 2.8rem;
+  width: 2.8rem;
+  background-color: #C7C8C9;
+}
+body .jumbotron-donation .container .border-donation .row .col .card .card-body p.card-text {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+body .jumbotron-donation .container .border-donation .row .col .card .card-body a.btn-small {
+  height: 2.5rem;
+  width: 8rem;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 470px) {
+  body .jumbotron-donation .container .border-donation .row .col .card a.btn-small-active {
+    display: block;
+  }
+  body .jumbotron-donation .container .border-donation .row .col .card .card-body a.btn {
+    display: none;
+  }
+}/*# sourceMappingURL=donation.css.map */

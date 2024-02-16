@@ -1,0 +1,45 @@
+body {
+    .container {
+        .border {
+            div {
+                .accordion {
+                    display: none;
+                }
+            }
+        }
+
+        .row {
+            .col {
+                .d-flex {
+                    p.title-meme {
+                        color: #02B37D;
+                    }
+
+                    p.desc-meme {
+                        .amount-label {
+                            color: #3F7AD9;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        .container {
+            .border {
+                div {
+                    table.table {
+                        display: none;
+                    }
+
+                    .accordion {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

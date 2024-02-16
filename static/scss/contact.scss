@@ -1,0 +1,25 @@
+$setengah_rem: 0.5rem;
+
+body {
+    .jumbotron-contact {
+        min-height: 100vh;
+
+        .container {
+            .border {
+                .row {
+                    .col {
+                        .desc-contact {
+                            margin-left: $setengah_rem + 1rem;
+                            margin-right: $setengah_rem + 1rem;
+                        }
+
+                        form {
+                            margin-left: $setengah_rem + 1rem;
+                            margin-right: $setengah_rem + 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

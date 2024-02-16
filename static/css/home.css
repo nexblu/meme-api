@@ -1,0 +1,24 @@
+body {
+  height: 100vh;
+}
+body .jumbotron img {
+  width: 12rem;
+  height: 12rem;
+}
+body .meme-api {
+  background-color: #FFFFFF;
+}
+body .meme-api .container .row .card {
+  --bs-card-bg: #212529;
+  --bs-card-color: #FFFFFF;
+}
+body .bt-jb {
+  width: 200px;
+}
+body footer .container .row .col-md-6 a.social-icon {
+  margin: 5px 5px;
+}
+body footer .container form .alert-success {
+  width: 15rem;
+  height: 50px;
+}/*# sourceMappingURL=home.css.map */

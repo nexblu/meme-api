@@ -1,0 +1,11 @@
+body .jumbotron-contact {
+  min-height: 100vh;
+}
+body .jumbotron-contact .container .border .row .col .desc-contact {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+body .jumbotron-contact .container .border .row .col form {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}/*# sourceMappingURL=contact.css.map */

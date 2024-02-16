@@ -1,0 +1,49 @@
+$color_light: #FFFFFF;
+$color_dark: #212529;
+
+body {
+    height: 100vh;
+
+    .jumbotron {
+        img {
+            width: 12rem;
+            height: 12rem;
+        }
+    }
+
+    .meme-api {
+        background-color: $color_light;
+
+        .container {
+            .row {
+                .card {
+                    --bs-card-bg: #{$color_dark};
+                    --bs-card-color: #{$color_light};
+                }
+            }
+        }
+    }
+
+    .bt-jb {
+        width: 200px;
+    }
+
+    footer {
+        .container {
+            .row {
+                .col-md-6 {
+                    a.social-icon {
+                        margin: 5px 5px;
+                    }
+                }
+            }
+
+            form {
+                .alert-success {
+                    width: 15rem;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}
