@@ -12,9 +12,9 @@ api.add_resource(
     login_routers, "/api/v1/nexblu/login/<string:username>/<string:password>"
 )
 api.add_resource(
-    register_routers, "/api/v1/nexblu/register/<string:username>/<string:password>"
+    register_routers,
+    "/api/v1/nexblu/register/<string:username>/<string:email>/<string:password>",
 )
-
 
 if __name__ == "__main__":
     app.run(debug=debug_mode)
