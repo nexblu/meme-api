@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restx import Api
 from routers.login import Login as login_routers
 from routers.register import Register as register_routers
+from config import debug_mode
 
 app = Flask(__name__)
 api = Api(app)
@@ -16,4 +17,4 @@ api.add_resource(
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=debug_mode)
