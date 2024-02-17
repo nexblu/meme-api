@@ -6,8 +6,10 @@ from routers.token import Token as token_routers
 from routers.email import EmailValidator as email_validator_routers
 from routers.email import EmailSend as email_send_routers
 from config import debug_mode
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 
