@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, make_response, jsonify
 from flask_restx import Api
 from routers.login import Login as login_routers
 from routers.register import Register as register_routers
@@ -9,7 +9,7 @@ from config import debug_mode
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 api = Api(app)
 
 
