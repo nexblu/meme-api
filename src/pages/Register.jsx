@@ -2,9 +2,21 @@ import { Helmet } from "react-helmet";
 import IconWeb from '../../static/image/icon.png'
 import { Container } from "react-bootstrap";
 import FormRegister from "../components/FormRegister";
+import { useEffect } from "react";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 import '../../static/css/register.css'
 
 const Register = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const accessToken = Cookies.get('access_token');
+        if (!accessToken) {
+            navigate('/login')
+        }
+    }, []);
+
     return (
         <>
             <Helmet>

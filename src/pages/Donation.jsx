@@ -6,9 +6,21 @@ import TitleCardDonation from "../components/TitleCardDonation";
 import DescCardDonation from "../components/DescCardDonation";
 import IconWeb from '../../static/image/icon.png'
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 import '../../static/css/donation.css'
 
 const Donation = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const accessToken = Cookies.get('access_token');
+        if (!accessToken) {
+            navigate('/login')
+        }
+    }, []);
+
     return (
         <>
             <Helmet>

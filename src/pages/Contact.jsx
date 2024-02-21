@@ -3,9 +3,21 @@ import JumbotronContact from "../components/JumbotronContact";
 import FooterBar from "../components/FooterBar";
 import IconWeb from '../../static/image/icon.png'
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+import { useEffect } from "react";
 import '../../static/css/contact.css'
 
 const Contact = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const accessToken = Cookies.get('access_token');
+        if (!accessToken) {
+            navigate('/login')
+        }
+    }, []);
+
     return (
         <>
             <Helmet>

@@ -7,14 +7,22 @@ import TitleDocumentation from "../components/TitleDocumentation";
 import RenderPagination from "../components/RenderPagination";
 import PaginatorDocumentation from "../components/PaginatorDocumentation";
 import { useState, useEffect } from "react";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 import '../../static/css/documentation.css'
 
 const Documentation = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [valuePage, setValuePage] = useState('')
     const totalPages = 2;
+    const navigate = useNavigate();
 
     useEffect(() => {
+        const accessToken = Cookies.get('access_token');
+        if (!accessToken) {
+            navigate('/login')
+        }
+
         setValuePage(
             <PaginatorDocumentation page={1} />
         )

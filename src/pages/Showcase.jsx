@@ -3,9 +3,21 @@ import FooterBar from "../components/FooterBar";
 import { Card, Button, Container } from "react-bootstrap";
 import IconWeb from '../../static/image/icon.png'
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 import '../../static/css/showcase.css'
 
 const Showcase = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const accessToken = Cookies.get('access_token');
+        if (!accessToken) {
+            navigate('/login')
+        }
+    }, []);
+
     return (
         <>
             <Helmet>
