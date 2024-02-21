@@ -1,4 +1,3 @@
-import NavigationBar from "../components/NavigationBar";
 import FooterBar from "../components/FooterBar";
 import { Button, Image } from "react-bootstrap";
 import NotFoundImage from '../../static/image/404.png'
@@ -14,7 +13,6 @@ const NotFound = () => {
                 <title>404 Not Found</title>
                 <link rel="icon" type="image/svg+xml" href={IconWeb} />
             </Helmet>
-            <NavigationBar />
             <section className="jumbotron jumbotron-notfound bg-notfound text-light d-flex align-items-center justify-content-center flex-column">
                 <Image src={NotFoundImage} />
                 <Button className="me-2 ms-2 mb-2 bt-jb fw-bold" href="/">Go Back Home</Button>
