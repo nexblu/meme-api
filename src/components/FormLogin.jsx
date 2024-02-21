@@ -44,6 +44,7 @@ const FormLogin = () => {
                 }
             })
             .catch(error => {
+                alertLogin(true)
                 console.error('There was a problem with the fetch operation:', error);
             });
     }

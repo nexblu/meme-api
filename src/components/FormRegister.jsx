@@ -1,5 +1,7 @@
 import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
 
 const FormRegister = () => {
     const [username, setUsername] = useState('');
@@ -11,6 +13,18 @@ const FormRegister = () => {
     const [passwordError, setPasswordError] = useState('');
 
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
+
+    const alertRegis = (err) => {
+        if (err) {
+            setError(<Alert key={'danger'} variant={'danger'}>
+                Username/Email Already Exist
+            </Alert>)
+        } else {
+            setError('')
+        }
+    }
 
     const onRegis = () => {
         fetch(`http://127.0.0.1:5000/api/v1/nexblu/register/${username}/${email}/${password}`, {
@@ -26,10 +40,14 @@ const FormRegister = () => {
             })
             .then(data => {
                 if (data['message'] === 'success create user') {
+                    navigate('/login')
                     clearForm();
+                } else {
+                    alertRegis(true)
                 }
             })
             .catch(error => {
+                alertRegis(true)
                 console.error('There was a problem with the fetch operation:', error);
             });
     }
@@ -77,6 +95,7 @@ const FormRegister = () => {
 
     return (
         <Form className='me-3 ms-3 mt-3'>
+            {error}
             <Form.Group className="mb-3" controlId="formGroupText">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} className={`${usernameError === 'This value is required.' ? 'border-danger' : ''}`} />
