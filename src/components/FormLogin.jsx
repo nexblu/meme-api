@@ -25,6 +25,7 @@ const FormLogin = () => {
                     const token = data['token'];
                     Cookies.set('access_token', token);
                     navigate('/')
+                    clearForm()
                 }
             })
             .catch(error => {
