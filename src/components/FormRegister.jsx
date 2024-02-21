@@ -10,6 +10,8 @@ const FormRegister = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
+    const [error, setError] = useState('');
+
     const onRegis = () => {
         fetch(`http://127.0.0.1:5000/api/v1/nexblu/register/${username}/${email}/${password}`, {
             method: 'POST',

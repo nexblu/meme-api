@@ -1,6 +1,7 @@
 import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
+import Alert from 'react-bootstrap/Alert';
 import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
@@ -10,7 +11,19 @@ const FormLogin = () => {
     const [usernameError, setUsernameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
+    const [error, setError] = useState('');
+
     const navigate = useNavigate();
+
+    const alertLogin = (err) => {
+        if (err) {
+            setError(<Alert key={'danger'} variant={'danger'}>
+                Username/Password Not Valid
+            </Alert>)
+        } else {
+            setError('')
+        }
+    }
 
     const onLogin = () => {
         fetch(`http://127.0.0.1:5000/api/v1/nexblu/login/${username}/${password}`, {
@@ -26,6 +39,8 @@ const FormLogin = () => {
                     Cookies.set('access_token', token);
                     navigate('/')
                     clearForm()
+                } else {
+                    alertLogin(true)
                 }
             })
             .catch(error => {
@@ -68,6 +83,7 @@ const FormLogin = () => {
 
     return (
         <Form className='me-3 ms-3 mt-3'>
+            {error}
             <Form.Group className="mb-3" controlId="formGroupText">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} className={`${usernameError === 'This value is required.' ? 'border-danger' : ''}`} />
