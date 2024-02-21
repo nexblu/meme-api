@@ -6,35 +6,25 @@ const FormRegister = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const [error, setError] = useState(true);
-
     const [usernameError, setUsernameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
     const onRegis = () => {
-        const url = 'http://localhost:8000/api/v1/meme-api/register';
-        const data = {
-            email: email,
-            password: password
-        };
-
-        fetch(url, {
+        fetch(`http://127.0.0.1:5000/api/v1/nexblu/register/${username}/${email}/${password}`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({})
         })
             .then(response => {
                 return response.json();
             })
-            .then(json => {
-                console.log('Response:', json);
-                if (json[0]['meme-api']['status_code'] === 201) {
-                    setEmail('');
-                    setPassword('');
+            .then(data => {
+                if (data['message'] === 'success create user') {
+                    clearForm();
                 }
             })
             .catch(error => {
@@ -44,51 +34,61 @@ const FormRegister = () => {
 
     const validation = () => {
         for (let i = 0; i < 3; i++) {
+            let isError = false;
             if (username === '') {
                 setUsernameError('This value is required.');
-                setError(true);
+                isError = true;
             } else {
                 setUsernameError('');
-                setError(false);
             }
             if (email === '') {
                 setEmailError('This value is required.');
-                setError(true);
+                isError = true;
             } else {
                 setEmailError('');
-                setError(false);
             }
             if (password === '') {
                 setPasswordError('This value is required.');
-                setError(true);
+                isError = true;
             } else {
                 setPasswordError('');
-                setError(false);
             }
+            return isError;
         }
     }
 
+    const clearForm = () => {
+        setUsernameError('');
+        setUsername('');
+        setEmailError('');
+        setEmail('');
+        setPasswordError('');
+        setPassword('');
+    }
+
     const handleSubmit = () => {
-        validation()
-        console.log(error)
+        const resultValidation = validation()
+        if (resultValidation === false) {
+            onRegis()
+        }
     }
 
     return (
         <Form className='me-3 ms-3 mt-3'>
             <Form.Group className="mb-3" controlId="formGroupText">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} className={`${usernameError === 'This value is required.' ? 'border-danger': ''}`} />
-                {usernameError === 'This value is required.' ? <p className='text-danger'>{usernameError}</p>: ''}
+                <Form.Control type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} className={`${usernameError === 'This value is required.' ? 'border-danger' : ''}`} />
+                {usernameError === 'This value is required.' ? <p className='text-danger'>{usernameError}</p> : ''}
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className={`${emailError === 'This value is required.' ? 'border-danger': ''}`}/>
-                {emailError === 'This value is required.' ? <p className='text-danger'>{emailError}</p>: ''}
+                <Form.Control type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className={`${emailError === 'This value is required.' ? 'border-danger' : ''}`} />
+                {emailError === 'This value is required.' ? <p className='text-danger'>{emailError}</p> : ''}
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className={`${passwordError === 'This value is required.' ? 'border-danger': ''}`}/>
-                {passwordError === 'This value is required.' ? <p className='text-danger'>{passwordError}</p>: ''}
+                <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className={`${passwordError === 'This value is required.' ? 'border-danger' : ''}`} />
+                {passwordError === 'This value is required.' ? <p className='text-danger'>{passwordError}</p> : ''}
             </Form.Group>
             <Button variant="primary" className='mb-3' onClick={handleSubmit}>Register</Button>{' '}
             <div className="d-flex flex-row mb-3">
