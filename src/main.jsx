@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Documentation from './pages/Documentation';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login></Login>
+  },
+  {
+    path: '/profile',
+    element: <Profile></Profile>
   },
   {
     path: '*',
