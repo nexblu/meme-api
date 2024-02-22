@@ -1,5 +1,6 @@
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom';
+import UsernameProfile from './UsernameProfile';
 
 
 const NavigationBar = () => {
@@ -10,7 +11,7 @@ const NavigationBar = () => {
         <>
             <Navbar expand="lg" className="bg-dark navbar-dark fw-bold shadow-sm fixed-top">
                 <Container>
-                    <Navbar.Brand href="/#">Nexblu API</Navbar.Brand>
+                    <UsernameProfile />
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
