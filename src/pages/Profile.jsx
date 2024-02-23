@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import Cookies from 'js-cookie';
+import Logout from "../components/Logout";
 import '../../static/css/profile.css'
 
 const Profile = () => {
@@ -34,17 +35,33 @@ const Profile = () => {
                         <h5 className="fw-bold me-3 ms-3 mt-3">Username</h5>
                         <div class="d-flex justify-content-between">
                             <div class="me-3 ms-3">nexblu</div>
-                            <Button variant="primary" className="me-3 ms-3">Edit</Button>{' '}
+                            <Button variant="primary" className="me-3 ms-3 btn-edit-profile">Edit</Button>{' '}
                         </div>
                         <h5 className="fw-bold me-3 ms-3">Email</h5>
                         <div class="d-flex justify-content-between">
                             <div class="me-3 ms-3">nexblu</div>
-                            <Button variant="primary" className="me-3 ms-3">Edit</Button>{' '}
+                            <Button variant="primary" className="me-3 ms-3 btn-edit-profile">Edit</Button>{' '}
                         </div>
                         <h5 className="fw-bold me-3 ms-3">API Key</h5>
                         <div class="d-flex justify-content-between">
                             <div class="me-3 ms-3">nexblu</div>
-                            <Button variant="primary" className="me-3 ms-3">Regenerate</Button>{' '}
+                            <Button variant="primary" className="me-3 ms-3 btn-edit-profile">Regenerate</Button>{' '}
+                        </div>
+                        <hr className="me-3 ms-3 mt-3" />
+                        <div className="row">
+                            <div className="col fw-bold text-center">
+                                Password And Authentication
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <Button variant="primary" className="btn-edit-password me-3 ms-3 mt-3">Change Password</Button>{' '}
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <Logout />
+                            </div>
                         </div>
                     </section>
                 </section>

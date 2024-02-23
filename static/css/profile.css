@@ -1,1 +1,9 @@
-/*# sourceMappingURL=profile.css.map */
+body .container .jumbotron .border div .btn-edit-profile {
+  width: 8rem;
+}
+body .container .jumbotron .border div .btn-edit-password {
+  width: 15rem;
+}
+body .container .jumbotron .border div .btn-logout {
+  width: 15rem;
+}/*# sourceMappingURL=profile.css.map */
